@@ -1,0 +1,10 @@
+body {
+  overflow-x: hidden;
+}
+body {
+  overflow-x: overlay;
+}
+
+html body {
+  overflow-x: hidden;
+}
