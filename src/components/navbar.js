@@ -31,7 +31,7 @@ function Navbar() {
           {/* Hamburger Menu Button */}
           <button
             onClick={toggleMenu}
-            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 text-black bg-white dark:bg-white-90 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-300"
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
           >
@@ -55,13 +55,13 @@ function Navbar() {
           <div
             className={`${
               isMenuOpen ? "block" : "hidden"
-            } absolute top-14 right-4 bg-white border border-gray-200 rounded-lg shadow-lg w-48 md:static md:flex md:items-center md:w-auto md:shadow-none md:border-none z-50`}
+            } absolute top-14 right-4 md:static md:flex md:items-center md:w-auto md:shadow-none z-50 rounded-lg w-48 md:bg-transparent bg-white dark:bg-gray-900 border border-gray-200 md:border-none`}
           >
-            {/* Close Button */}
-            <div className="flex justify-end px-4 pt-4">
+            {/* Close Button (Visible on Small Screens Only) */}
+            <div className="flex justify-end px-4 pt-4 md:hidden">
               <button
                 onClick={closeMenu}
-                className="p-2 text-gray-600 rounded-md hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700"
+                className="p-2 text-black rounded-md hover:bg-gray-200 dark:text-gray-400 dark:hover:bg-gray-700"
               >
                 <svg
                   className="w-6 h-6"
@@ -80,6 +80,7 @@ function Navbar() {
               </button>
             </div>
 
+            {/* Menu Items */}
             <ul
               className="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0"
               onClick={closeMenu}
@@ -87,7 +88,9 @@ function Navbar() {
               <li>
                 <Link
                   to="/"
-                  className="block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 dark:text-black dark:hover:bg-gray-700"
+                  className={`block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 ${
+                    location.pathname === "/" ? "text-blue-700" : "dark:text-white"
+                  }`}
                   aria-current={location.pathname === "/" ? "page" : undefined}
                 >
                   Home
@@ -96,7 +99,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/about"
-                  className="block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 dark:text-black dark:hover:bg-gray-700"
+                  className="block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white"
                 >
                   About
                 </Link>
@@ -104,7 +107,7 @@ function Navbar() {
               <li>
                 <Link
                   to="/query"
-                  className="block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 dark:text-black dark:hover:bg-gray-700"
+                  className="block py-2 px-4 rounded-md text-black hover:bg-gray-200 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white"
                 >
                   Query
                 </Link>
